@@ -1,0 +1,136 @@
+<div ng-controller="dataView">
+
+<div ng-groupler='homePage'>
+   <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row navclr">
+          <span class="mdl-layout-title tag">Blood Is Meant To Circulate. Pass It Around!</span>
+          <div class="mdl-layout-spacer"></div>
+          
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+            <img src="images/bloodicon.png" class="imghd">
+<!--          <img src="images/user.jpg" class="demo-avatar">-->
+          <div class="demo-avatar-dropdown">
+            <span class="case username">Hello {{username}}!</span>
+            <div class="mdl-layout-spacer"></div>
+            
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+            
+          <a class="mdl-navigation__link cursor" ng-click="home2()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link cursor" ng-click="showabout2()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>About</a>
+          <a class="mdl-navigation__link" href=""><i class="fa fa-phone mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>Contact Us</a>
+          
+          
+          <a class="mdl-navigation__link" href="reactiontimer.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Play A Game</a>
+            
+            
+            <a class="mdl-navigation__link cursor" ng-click="logout()"><i class="fa fa-sign-out mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>Log Out</a>
+<!--
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+-->
+        </nav>
+     </div>
+        <div class="bg">
+            <div ng-repeat="rec in data">
+                <div class="details">
+                    
+                        <div class="row top">
+                            <div class="col-md-8 col-md-offset-1">
+                                <span class="key">Name</span> : <span class="case">{{rec.firstname}} {{rec.lastname}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-1">
+                                <span class="key">Email</span> : {{rec.email}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-1">
+                                <span class="key">Phone</span> : {{rec.phone}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-1">
+                                <span class="key">Address</span> : {{rec.address}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-1">
+                                <span class="key">State</span> : {{rec.state}}
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="modal-body afterreg2" id="expiremodal">
+  <div class="container-fluid">
+      <div class="row congomarg">
+           <span class="congo">Session expired please log<br><br>in again.</span>
+      </div>
+      <div class="row cntinu">
+          <div class="col-sm-6 col-sm-offset-3">
+              <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control" ng-click="backPage()">OK</button>  
+                        </div>
+          </div>
+      </div>
+  </div>
+</div>
+            <div class="modal-body nodata" id="nodatafound">
+  <div class="container-fluid">
+      <div class="row congomarg">
+           <span class="congo">Sorry, We Have No Records<br><br>For Which You Are Searching.</span>
+      </div>
+      <div class="row cntinu">
+          <div class="col-sm-6 col-sm-offset-3">
+              <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control" ng-click="userPage2()">Back</button>  
+                        </div>
+          </div>
+      </div>
+  </div>
+</div>
+            
+        
+      </div>
+            
+                         <div class="modal-body about1" id="aboutus">
+  <div class="container-fluid">
+      <div class="row cntntmrg">
+           <div class="col-sm-2 col-sm-offset-5 abouthead">
+               About
+          </div>
+      </div>
+      <div class="row cntntmrg">
+          <div class="col-sm-12 aboutcntnt">
+              This web application is all about finding people of a particular blood group existing in a particular state.<br><br>
+              This application comes in use when a person needs a blood and currently that blood group is not available. People having blood with same bloodgroupmay available nearby and they may be willing to donate. But how that person comes to know about those people? Is there any way? Exactly this is the way how our application works.<br><br>
+              After registration he/she will become the member of our blood donation team. It means now he can search people of a particular bloodgroup and can be searched by other people if they need blood of same blood group.<br><br>
+              The main motive is to connect people, so that they can serve each other in an emergency.
+          </div>
+      </div>
+      <div class="row cntntmrg">
+          
+          <div class="col-sm-2 col-sm-offset-5">
+              <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control" ng-click="closeabout2()">OK</button>  
+                        </div>
+          </div>
+
+  </div>
+</div>
+            
+      </div>
+      </div>
+</div>
+    
+</div>

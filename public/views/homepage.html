@@ -1,0 +1,249 @@
+<div ng-groupler='homePage'>
+   <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header mainhead">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row navclr">
+          <span class="mdl-layout-title tag">Excuses Never Save A Life But Blood Donation Does!</span>
+          <div class="mdl-layout-spacer"></div>
+          
+        </div>
+      </header>
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 drawers">
+        <header class="demo-drawer-header">
+<!--          <img src="images/user.jpg" class="demo-avatar">-->
+            <img src="images/bloodicon.png" class="imghd">
+          <div class="demo-avatar-dropdown">
+            <span class="username1">Join Us And Save Lives!</span>
+            <div class="mdl-layout-spacer"></div>
+            
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link cursor" ng-click="home1()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
+          <a class="mdl-navigation__link cursor" ng-click="showabout()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>About</a>
+          <a class="mdl-navigation__link cursor" ng-click="showcontact()"><i class="fa fa-phone mdl-color-text--blue-grey-400 material-icons" aria-hidden="true"></i>Contact Us</a>
+          
+          
+          <a class="mdl-navigation__link" href="reactiontimer.html"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Play A Game</a>
+<!--
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Promos</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">shopping_cart</i>Purchases</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Social</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+-->
+        </nav>
+     </div>
+        <div class="bg">
+            
+            <div class="blur">
+            </div>
+             <div class="mymodal">
+               
+                 <div class="acchead">
+                     Create New Account!
+                 </div>
+                 <span class="err2">{{messageSignup}}</span>
+                 <form name="userForm" ng-submit="userForm.$valid && submitForm()" novalidate>
+            <div class="row">
+                     <div class="col-sm-5 col-sm-offset-1">
+                         <div class="form-group">
+                    <input name="firstname" type="text" placeholder="Firstname" class="form-control case" ng-model="user.firstname" required>
+                             <span ng-show="(userForm.$submitted || userForm.firstname.$touched) && (userForm.firstname.$error.required)" class="err">can't leave this empty</span>
+                </div>
+                </div>
+                     <div class="col-sm-5 ">
+                         <div class="form-grup">
+                    <input name="lastname" type="text" placeholder="Lastname" class="form-control case" ng-model="user.lastname" required>
+                             <span ng-show="(userForm.$submitted || userForm.lastname.$touched) && (userForm.lastname.$error.required)" class="err">can't leave this empty</span>
+                </div>
+                </div>
+                    </div>
+                
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="form-group">
+                    <input name="email" type="text" placeholder="Email" class="form-control" ng-model="user.email" pattern="[a-z]{1}[a-z0-9.]+@[a-z]+[.][a-z]+"  required>
+                            <span ng-show="(userForm.$submitted || userForm.email.$touched) && (userForm.email.$error.required)" class="err">can't leave this empty</span>
+                            <span ng-show="(userForm.$submitted || userForm.email.$touched) && (userForm.email.$error.pattern)" class="err">invalid email</span>
+                </div>
+                    </div>
+                </div>
+                     <div class="row">
+                     <div class="col-sm-5 col-sm-offset-1">
+                         <div class="form-group">
+                    <input name="bloodgroup" type="text" placeholder="Bloodgroup" class="form-control case" ng-model="user.bloodgroup" pattern="^[ABOabo]{1,2}[+-]{1}$" required>
+                             <span ng-show="(userForm.$submitted || userForm.bloodgroup.$touched) && (userForm.bloodgroup.$error.required)" class="err">can't leave this empty</span>
+                             <span ng-show="(userForm.$submitted || userForm.bloodgroup.$touched) && (userForm.bloodgroup.$error.pattern)" class="err">invalid bloodgroup</span>
+                </div>
+                </div>
+                     <div class="col-sm-5 ">
+                         <div class="form-grup">
+                    <input name="phone" type="text" placeholder="Phone" class="form-control" ng-model="user.phone" minlength="10" maxlength="10" pattern="^[789]\d{9}$" required>
+                          <span ng-show="(userForm.$submitted || userForm.phone.$touched) && (userForm.phone.$error.required)" class="err">can't leave this empty</span>
+                             <span ng-show="(userForm.$submitted || userForm.phone.$touched) && (userForm.phone.$error.pattern)" class="err">invalid number</span>   
+                </div>
+                </div>
+                    </div>
+                
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        
+                         <div class="form-group">
+                             <textarea name="address" class="form-control" style="height: 70px;" placeholder="Enter Address" ng-model="user.address" required></textarea>
+                                <span ng-show="(userForm.$submitted || userForm.address.$touched) && (userForm.address.$error.required)" class="err">can't leave this empty</span>
+                          </div>
+                    </div>
+                </div>
+                     
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">  
+                             <div class="form-group" my-states>
+                                 
+                             </div>
+                        
+                       
+                          
+                    </div>
+                </div>
+                 <div class="row">
+                     <div class="col-sm-5 col-sm-offset-1">
+                         <div class="form-group">
+                    <input name="password" type="password" placeholder="Password" class="form-control" ng-model="user.pass1" pattern=".{6,}" required>
+                              <span ng-show="(userForm.$submitted || userForm.password.$touched) && (userForm.password.$error.required)" class="err">can't leave this empty</span>
+                             <span ng-show="(userForm.$submitted || userForm.password.$touched) && (userForm.password.$error.pattern)" class="err">at least 6 characters</span>   
+                </div>
+                </div>
+                     <div class="col-sm-5 ">
+                         <div class="form-grup">
+                    <input type="password" placeholder="Verify Password" class="form-control" ng-model="user.pass2" required>
+                </div>
+                </div>
+                    </div>
+                     <div class="row btnmarg">
+                    <div class="col-md-8 col-md-offset-2" >
+                        <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control">Create</button>  
+                        </div>
+                    </div>
+        
+                  </div>
+                
+        </form>
+                 
+
+             </div> 
+            
+            <div class="blur2">
+            </div>
+            <div class="mymodel2">
+                <div class="acchead">
+                     Already Have An Account?
+                 </div>
+                <span class="err2">{{messageLogin}}</span>
+                 <form name="loginForm" ng-submit="loginForm.$valid && login()" novalidate>
+                     <div class="row email">
+                    <div class="col-md-10 col-md-offset-1" >
+                        <div class="form-group">
+                        <input name="email" type="text" placeholder="Email" class="form-control" ng-model="account.email" required>
+                            <span ng-show="(loginForm.$submitted || loginForm.email.$touched) && (loginForm.email.$error.required)" class="err">enter email</span>
+                    </div> 
+                    </div>
+        
+                  </div>
+                     <div class="row email">
+                    <div class="col-md-10 col-md-offset-1" >
+                        <div class="form-group">
+                        <input name="password" type="password" placeholder="Password" class="form-control" ng-model="account.password" required>
+                            <span ng-show="(loginForm.$submitted || loginForm.password.$touched) && (loginForm.password.$error.required)" class="err">enter password</span>
+                            
+                    </div>  
+                    </div>
+        
+                  </div>
+                     <div class="row btnmarg">
+                    <div class="col-md-8 col-md-offset-2" >
+                        <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control">Log In</button>  
+                        </div>
+                    </div>
+        
+                  </div>
+                     
+            </form>
+        </div>
+            <div class="modal-body afterreg" id="congomodal">
+  <div class="container-fluid">
+      <div class="row congomarg">
+           <span class="congo">Congratulation, you have been<br><br> registered successfully.</span>
+      </div>
+      <div class="row cntinu">
+          <div class="col-sm-6 col-sm-offset-3">
+              <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control" ng-click="userPage()">Continue</button>  
+                        </div>
+          </div>
+      </div>
+  </div>
+</div>
+            
+             <div class="modal-body about" id="aboutus">
+  <div class="container-fluid">
+      <div class="row cntntmrg">
+           <div class="col-sm-2 col-sm-offset-5 abouthead">
+               About
+          </div>
+      </div>
+      <div class="row cntntmrg">
+          <div class="col-sm-12 aboutcntnt">
+              This web application is all about finding people of a particular blood group existing in a particular state.<br><br>
+              This application comes in use when a person needs a blood and currently that blood group is not available. People having blood with same bloodgroupmay available nearby and they may be willing to donate. But how that person comes to know about those people? Is there any way? Exactly this is the way how our application works.<br><br>
+              After registration he/she will become the member of our blood donation team. It means now he can search people of a particular bloodgroup and can be searched by other people if they need blood of same blood group.<br><br>
+              The main motive is to connect people, so that they can serve each other in an emergency.
+          </div>
+      </div>
+      <div class="row cntntmrg">
+          
+          <div class="col-sm-2 col-sm-offset-5">
+              <div class="form-group">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control" ng-click="closeabout()">OK</button>  
+                        </div>
+          </div>
+
+  </div>
+</div>
+            
+      </div>
+            
+            <div class="modal-body contact" id="contactus">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-4 col-sm-offset-3">
+              <div class="contactpic">
+              </div>
+          </div> 
+      </div>
+      <div class="row contactst">
+          <div class="col-sm-11 col-sm-offset-1">
+              <div>
+              Chirag Malhotra : +917015944097
+          </div>
+          </div>
+      </div>
+      <div class="row contactst">
+          <div class="col-sm-11 col-sm-offset-1">
+              <div>
+              Sahib Singh : +918376814154
+          </div>
+          </div>
+      </div>
+      <div class="row okbtn">
+          <div class="col-sm-2 col-sm-offset-4">
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent form-control" ng-click="closecontact()">OK</button>  
+          </div>
+      </div>
+  </div>
+</div>
+      </div>
+</div>
+
+
